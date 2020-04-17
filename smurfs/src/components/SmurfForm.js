@@ -11,28 +11,28 @@ import {
   Col
 } from 'reactstrap'
 
-const SmurfForm = () => {
+const SmurfForm = (props) => {
   return(
     <Container className="smurf-form">
       <h1> Submit a Smurf </h1>
       <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <Input placeholder='Name' />
+          <Input placeholder='Name' value={props.name} onChange={props.nameChange} />
         </Col>
       </Row>
       <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <Input placeholder='Age' />
+          <Input placeholder='Age' value={props.age} onChange={props.ageChange} />
         </Col>
       </Row>
       <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <InputGroup>
-            <Input placeholder='Height' />
+            <Input placeholder='Height' value={props.height} onChange={props.heightChange} />
             <InputGroupAddon addonType="append">
               <InputGroupText>cm</InputGroupText>
             </InputGroupAddon>
-            <Button>Submit</Button>
+            <Button onClick={() => props.postSmurfInfo()}>Submit</Button>
           </InputGroup>
         </Col>
       </Row>
